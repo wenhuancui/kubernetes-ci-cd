@@ -22,6 +22,6 @@ node {
 
     stage "Deploy"
 
-        sh "kubectl apply -f applications/${appName}/k8s"
+    sh "sed -i 's/<BUILD_TAG>/${tag}' applications/${appName}/k8s/deployment.yaml | kubectl apply -f -"
 
 }
